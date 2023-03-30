@@ -5,6 +5,18 @@ import Footer from '@components/Footer'
 export default function Home() {
   console.log("Rendered home");
   console.log("Rendered home2");
+
+  const url = 'https://hexcloud.co/v1/flow/fR5wxrP7ttnb/stream'
+  const now = new Date();
+  var data = {"account_id": "12346", "site_id": "site1", "deploy_id": "depid1", "request_id": "req1", "timestamp": now.toISOString()}
+
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(response => console.log(JSON.stringify(response)))
+
   return (
     <div className="container">
       <Head>
